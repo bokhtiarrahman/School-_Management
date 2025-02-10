@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Laldighi High School</title>
+    <link rel="stylesheet" href="../css/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#notices"><i class="fas fa-bell"></i> Notices</a>
+                    </li>
+                    <li>
+                        <a href="#gallery"><i class="fas fa-images"></i> Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#results"><i class="fas fa-graduation-cap"></i> Results</a>
+                    </li>
+                    <li>
+                        <a href="#messages"><i class="fas fa-envelope"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                    <li>
+                        <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="user-info">
+                    <span>Admin</span>
+                    <img src="../images/admin-avatar.jpg" alt="Admin">
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>Total Students</h3>
+                            <p>1,234</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <div class="stat-info">
+                            <h3>Total Teachers</h3>
+                            <p>56</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-bell"></i>
+                        <div class="stat-info">
+                            <h3>Active Notices</h3>
+                            <p>8</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notice Management -->
+                <div class="content-section" id="notices-section">
+                    <h2>Manage Notices</h2>
+                    <button class="add-btn" id="add-notice-btn">
+                        <i class="fas fa-plus"></i> Add New Notice
+                    </button>
+                    <div class="notice-list">
+                        <!-- Notice items will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Gallery Management -->
+                <div class="content-section" id="gallery-section">
+                    <h2>Manage Gallery</h2>
+                    <div class="upload-section">
+                        <form id="imageUploadForm">
+                            <input type="file" id="imageInput" accept="image/*" multiple>
+                            <button type="submit">Upload Images</button>
+                        </form>
+                    </div>
+                    <div class="gallery-grid">
+                        <!-- Gallery items will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Results Management -->
+                <div class="content-section" id="results-section">
+                    <h2>Manage Results</h2>
+                    <div class="results-upload">
+                        <form id="resultsUploadForm">
+                            <select id="examType">
+                                <option value="">Select Exam Type</option>
+                                <option value="midterm">Midterm</option>
+                                <option value="final">Final</option>
+                            </select>
+                            <select id="className">
+                                <option value="">Select Class</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                            </select>
+                            <input type="file" id="resultsFile" accept=".xlsx,.csv">
+                            <button type="submit">Upload Results</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding new notice -->
+    <div class="modal" id="notice-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Notice</h2>
+            <form id="noticeForm">
+                <input type="text" placeholder="Notice Title" required>
+                <textarea placeholder="Notice Content" required></textarea>
+                <button type="submit">Publish Notice</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/admin-dashboard.js"></script>
+</body>
+</html>
